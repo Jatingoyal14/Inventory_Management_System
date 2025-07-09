@@ -13,9 +13,13 @@ This **Inventory Management System** is a console-based application built using 
 
 
 ● Developed a fully functional Inventory Management System using C++ and authentication features.
+
 ● Implemented modular item CRUD operations, real-time table views, low-stock alerts, and CSV report export using QFile and QTableWidget.
+
 ● Integrated user authentication system and added persistent file storage (inventory.txt) for data recovery between sessions.
+
 ● Utilized windeployqt to generate a portable Windows executable, making the system deployment-ready for production and offline use.
+
 ● Uploaded source code and `.exe` to GitHub with detailed README and screenshots for project demonstration and portfolio showcasing.
 
 ---
@@ -24,9 +28,13 @@ This **Inventory Management System** is a console-based application built using 
 ##📚 Project Info:
 
 Author: **Jatin Goyal**
+
 College: Amity University Gwalior
+
 Batch: 2022–2026
+
 Language: C++
+
 Project Type: Console-based Desktop App
 ---
 ## 💡 Features
