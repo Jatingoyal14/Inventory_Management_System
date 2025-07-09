@@ -1,12 +1,5 @@
 # 🧾 Inventory Management System (C++ Console Project)
-
-![GitHub repo size](https://img.shields.io/github/repo-size/Jatingoyal14/inventory-management-system)
-![GitHub stars](https://img.shields.io/github/stars/Jatingoyal14/inventory-management-system?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Jatingoyal14/inventory-management-system?style=social)
-![GitHub license](https://img.shields.io/github/license/Jatingoyal14/inventory-management-system)
-
 ---
-
 ## 📘 Project Description
 
 This **Inventory Management System** is a console-based application built using **C++**. It enables users to perform essential inventory operations such as adding, updating, deleting, searching, sorting, and exporting inventory data. This is a beginner-friendly project that uses **Object-Oriented Programming (OOP)** concepts and **File Handling** in C++.
