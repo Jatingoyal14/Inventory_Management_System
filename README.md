@@ -47,8 +47,8 @@ Project Type: Console-based Desktop App
 
 ## 🔐 Login Credentials
 ```
-**Username:** `Jatin`  
-**Password:** `1407`  
+Username: `Jatin`  
+Password: `1407`  
 ```
 (Maximum 3 attempts allowed)
 
