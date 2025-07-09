@@ -25,15 +25,15 @@ This **Inventory Management System** is a console-based application built using 
 ---
 
 ---
-##📚 Project Info:
+## 📚 Project Info:
 
-Author: **Jatin Goyal**
+Author :     **Jatin Goyal**
 
-College: Amity University Gwalior
+College :    **Amity University Gwalior**
 
-Batch: 2022–2026
+Batch :      **2022–2026**
 
-Language: C++
+Language :   **C++**
 
 Project Type: Console-based Desktop App
 ---
@@ -53,10 +53,10 @@ Project Type: Console-based Desktop App
 ---
 
 ## 🔐 Login Credentials
-
-- **Username:** `Jatin`  
-- **Password:** `1407`  
-
+```
+**Username:** `Jatin`  
+**Password:** `1407`  
+```
 (Maximum 3 attempts allowed)
 
 ---
