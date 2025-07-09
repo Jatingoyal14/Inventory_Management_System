@@ -1,7 +1,18 @@
-# Inventory Management System
-# 🧾 Inventory Management System (C++)
+# Inventory Management System (Qt GUI + C++)
 
-A file-based Inventory Management System built using C++ with Object-Oriented Programming. It allows businesses to track stock, manage items, and export reports.
+A full-featured Inventory Management desktop app built using Qt Widgets in C++. Includes login, inventory management, and report exporting.
+
+## Features
+- Secure login window
+- GUI dashboard
+- Add/view/update/delete inventory items
+- Low stock alerts
+- Export CSV report
+
+## Built With
+- Qt 6
+- C++ (OOP, Qt Core/Widgets)
+
 
 ---
 
