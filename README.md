@@ -1,10 +1,9 @@
-# Inventory Management System (Qt GUI + C++)
+# Inventory Management System ( C++)
 
-A full-featured Inventory Management desktop app built using Qt Widgets in C++. Includes login, inventory management, and report exporting.
+A full-featured Inventory Management desktop app built in C++. Includes login, inventory management, and report exporting.
 
 ## Features
 - Secure login window
-- GUI dashboard
 - Add/view/update/delete inventory items
 - Low stock alerts
 - Export CSV report
