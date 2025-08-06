@@ -68,7 +68,6 @@ void loadFromFile() {
     string line;
     while (getline(in, line)) {
         Item item;
-        // sscanf(line.c_str(), "%d,%[^,],%d,%f", &item.id, &item.name[0], &item.quantity, &item.price);
       stringstream ss(line);
       string temp;
       getline(ss, temp, ','); item.id = stoi(temp);
@@ -234,5 +233,6 @@ int main() {
 
     return 0;
 }
+
 
 
