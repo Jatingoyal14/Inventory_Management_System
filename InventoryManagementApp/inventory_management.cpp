@@ -68,8 +68,14 @@ void loadFromFile() {
     string line;
     while (getline(in, line)) {
         Item item;
-        sscanf(line.c_str(), "%d,%[^,],%d,%f", &item.id, &item.name[0], &item.quantity, &item.price);
-        inventory.push_back(item);
+        // sscanf(line.c_str(), "%d,%[^,],%d,%f", &item.id, &item.name[0], &item.quantity, &item.price);
+      stringstream ss(line);
+      string temp;
+      getline(ss, temp, ','); item.id = stoi(temp);
+      getline(ss, item.name, ',');
+      getline(ss, temp, ','); item.quantity = stoi(temp);
+      getline(ss, temp, ','); item.price = stof(temp);
+      inventory.push_back(item);
     }
     in.close();
 }
@@ -228,4 +234,5 @@ int main() {
 
     return 0;
 }
+
 
