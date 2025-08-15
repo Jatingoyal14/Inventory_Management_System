@@ -1,96 +1,82 @@
 # 🧾 Inventory Management System (C++ Console Project)
----
-## 📘 Project Description
 
-This **Inventory Management System** is a console-based application built using **C++**. It enables users to perform essential inventory operations such as adding, updating, deleting, searching, sorting, and exporting inventory data. This is a beginner-friendly project that uses **Object-Oriented Programming (OOP)** concepts and **File Handling** in C++.
-
-
-● Developed a fully functional Inventory Management System using C++ and authentication features.
-
-● Implemented modular item CRUD operations, real-time table views, low-stock alerts, and CSV report export using QFile and QTableWidget.
-
-● Integrated user authentication system and added persistent file storage (inventory.txt) for data recovery between sessions.
-
-● Utilized windeployqt to generate a portable Windows executable, making the system deployment-ready for production and offline use.
-
-● Uploaded source code and `.exe` to GitHub with detailed README and screenshots for project demonstration and portfolio showcasing.
+## 📌 Overview
+This **Inventory Management System** is a **menu-driven C++ console application** designed to manage inventory items efficiently.  
+It now features **soft login authentication** with **file-based user accounts** and **new user registration**, replacing the previous hardcoded login system.  
+The system supports adding, updating, deleting, searching, sorting, and exporting inventory data, along with low-stock alerts.
 
 ---
 
----
-## 📚 Project Info:
+## 🚀 Features
 
-Author :     **Jatin Goyal**
+### 🔐 Authentication
+- **Soft Login**: Reads credentials from `users.txt`.
+- **User Registration**: Allows creation of new user accounts.
+- **Duplicate Username Protection**.
+- **3 Login Attempts** limit for security.
 
-College :    **Amity University Gwalior**
+### 📂 Inventory Management
+- **Add Item**: Add a new item with ID, name, quantity, and price.
+- **Display All Items**: View all inventory in a formatted table.
+- **Search Item**: Find items by ID.
+- **Update Item**: Modify details of an existing item.
+- **Delete Item**: Remove items by ID.
+- **Low Stock Alert**: Shows items with quantity < 5.
+- **Sort Inventory**: Sort by name or quantity.
+- **Export Report**: Save inventory as `report.csv` for Excel or analysis.
 
-Batch :      **2022–2026**
-
-Language :   **C++**
-
-Project Type: Console-based Desktop App
----
-## 💡 Features
-
-✅ Add new items with validations  
-✅ Display all inventory items in a tabular format  
-✅ Search for an item using ID  
-✅ Update item details  
-✅ Delete an item  
-✅ Save and load inventory using file I/O  
-✅ Show items with low stock (quantity < 5)  
-✅ Sort inventory by name or quantity  
-✅ Export inventory report to a CSV file  
-✅ Login system with username & password (hardcoded)
+### 💾 File Handling
+- **Persistent Storage** in `inventory.txt` (CSV format).
+- **Export Reports** in `report.csv`.
+- **Soft Login Data** stored in `users.txt`.
 
 ---
-
-## 🔐 Login Credentials
-```
-Username: `Jatin`  
-Password: `1407`  
-```
-(Maximum 3 attempts allowed)
-
----
-
-## 🧱 OOP Concepts Used
-
-- **Encapsulation**: Class `Item` encapsulates properties and methods.  
-- **Abstraction**: Item input and display logic abstracted into methods.  
-- **Modular Design**: Code separated logically into functions and classes.  
-- **Scalability**: Easily extendable to GUI (e.g., with Qt or other frameworks).
-
----
-
-## 🧩 Modules & Structure
-
-| Module            | Description                               |
-|-------------------|-------------------------------------------|
-| `Item` class      | Stores item data and handles input/output |
-| `inventory` vector| Stores all items in memory                |
-| File I/O          | Load/save inventory from `inventory.txt`  |
-| CSV Export        | Generates `report.csv` for inventory      |
-| Login System      | Basic username/password authentication    |
 
 ## 🛠️ Tech Stack
-
-- **Language:** C++
-- **Concepts Used:** OOP, STL (`vector`, `string`), File Handling, Lambda, Sorting
-- **Platform:** Console-based
+- **Language**: C++17
+- **Libraries Used**:
+  - `<iostream>` – Input/Output operations
+  - `<fstream>` – File handling
+  - `<vector>` – Dynamic storage of items
+  - `<iomanip>` – Formatted output
+  - `<algorithm>` – Sorting functions
+  - `<sstream>` – String parsing
 
 ---
 
-## Output Files:
+## 📂 File Structure
+```
 
-| File Name       | Description                         |
-| --------------- | ----------------------------------- |
-| `inventory.txt` | Stores saved inventory data         |
-| `report.csv`    | CSV format report of inventory data |
+├── inventory\_management.cpp   # Main source code
+├── inventory.txt               # Inventory storage file
+├── report.csv                   # Generated reports
+├── users.txt                    # User login data
+├── README.md                    # Project documentation
 
 ```
-##Sample Output:
---- Inventory Management ---
+
+---
+
+## 🔄 Workflow
+
+### **1️⃣ User Authentication**
+- On start, the system displays:
+```
+
+1. Login
+2. Register
+3. Exit
+
+```
+- **Login**: Reads username/password from `users.txt`.
+- **Register**: Prompts for a username and password, checks duplicates, and saves them in `users.txt`.
+- **3 failed login attempts** → exit.
+
+---
+
+### **2️⃣ Main Menu (After Login)**
+```
+
 1. Add Item
 2. Display All
 3. Search Item
@@ -101,15 +87,66 @@ Password: `1407`
 8. Sort Inventory
 9. Export Report
 10. Save & Exit
+
 ```
 
+---
 
-## 📂 How to Run
+### **3️⃣ Inventory Operations**
+- **Add Item**: User inputs details → stored in memory and optionally saved.
+- **Display All**: Shows table of all inventory.
+- **Search Item**: Searches by ID.
+- **Update Item**: Modifies existing entry.
+- **Delete Item**: Removes by ID.
+- **Low Stock Alert**: Lists items with quantity < 5.
+- **Sort Inventory**: Sorts alphabetically or by quantity.
+- **Export Report**: Saves CSV report.
+- **Save & Exit**: Writes inventory to `inventory.txt`.
 
-1. **Clone the repo** or download ZIP
-2. Open `inventory_management.cpp` in a C++ IDE (Code::Blocks, VS Code, etc.)
-3. Compile & run
+---
 
-```bash
-g++ inventory_management.cpp -o inventory
-./inventory
+## 📊 Data Flow
+1. **Login/Register** → Validates user.
+2. **Load Inventory** → Reads from `inventory.txt`.
+3. **Perform Operations** → Add, update, delete, search, sort.
+4. **Save Inventory** → Updates `inventory.txt` and `report.csv`.
+
+---
+
+## 📷 Example Users File (`users.txt`)
+```
+
+Jatin,1407
+admin,admin123
+user1,password1
+
+```
+
+---
+
+## ⚠️ Known Limitations
+- Passwords are stored in **plain text** (can be improved with hashing).
+- File parsing is CSV-based without strict validation (possible to enhance).
+- No role-based access (e.g., Admin vs Viewer).
+
+---
+
+## 🔮 Future Improvements
+- Password hashing (SHA-256 / bcrypt).
+- Role-based access control.
+- GUI interface (Qt, wxWidgets).
+- Database integration (MySQL/SQLite).
+- REST API for web or mobile app support.
+
+---
+
+## 📜 License
+This project is open-source and free to use under the MIT License.
+
+---
+
+## ✨ Author
+**Jatin Goyal**  
+CSE Student – Amity University Gwalior (Batch 2022-26)  
+```
+
