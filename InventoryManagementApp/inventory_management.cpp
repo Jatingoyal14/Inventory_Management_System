@@ -21,6 +21,7 @@ public:
     int quantity;
     float price;
 
+
    void input() {
     cout << "Enter Item ID: ";
     cin >> id;
@@ -68,13 +69,15 @@ void loadFromFile() {
     string line;
     while (getline(in, line)) {
         Item item;
-      stringstream ss(line);
-      string temp;
-      getline(ss, temp, ','); item.id = stoi(temp);
-      getline(ss, item.name, ',');
-      getline(ss, temp, ','); item.quantity = stoi(temp);
-      getline(ss, temp, ','); item.price = stof(temp);
-      inventory.push_back(item);
+        // sscanf(line.c_str(), "%d,%[^,],%d,%f", &item.id, &item.name[0], &item.quantity, &item.price);
+        stringstream ss(line);
+string temp;
+getline(ss, temp, ','); item.id = stoi(temp);
+getline(ss, item.name, ',');
+getline(ss, temp, ','); item.quantity = stoi(temp);
+getline(ss, temp, ','); item.price = stof(temp);
+
+        inventory.push_back(item);
     }
     in.close();
 }
@@ -181,9 +184,6 @@ bool login() {
     string user, pass;
     int attempts = 0;
 
-    const string USERNAME = "Jatin";
-    const string PASSWORD = "1407";
-
     while (attempts < 3) {
         cout << "Login Required\n";
         cout << "Username: ";
@@ -191,7 +191,24 @@ bool login() {
         cout << "Password: ";
         cin >> pass;
 
-        if (user == USERNAME && pass == PASSWORD) {
+        ifstream in("users.txt");
+        string line, uname, pwd;
+        bool authenticated = false;
+
+        while (getline(in, line)) {
+            stringstream ss(line);
+            getline(ss, uname, ',');
+            getline(ss, pwd, ',');
+
+            if (user == uname && pass == pwd) {
+                authenticated = true;
+                break;
+            }
+        }
+
+        in.close();
+
+        if (authenticated) {
             cout << " Login successful.\n";
             return true;
         } else {
@@ -204,18 +221,81 @@ bool login() {
     return false;
 }
 
-int main() {
+void registerUser() {
+    string username, password;
 
-    if (!login()) return 0; 
+    cout << "\n--- User Registration ---\n";
+    cout << "Enter new username: ";
+    cin >> username;
+
+    // Check if username already exists
+    ifstream inFile("users.txt");
+    string line, existingUser;
+    bool exists = false;
+
+    while (getline(inFile, line)) {
+        stringstream ss(line);
+        getline(ss, existingUser, ',');
+        if (existingUser == username) {
+            exists = true;
+            break;
+        }
+    }
+
+    inFile.close();
+
+    if (exists) {
+        cout << "Username already exists. Try a different one.\n";
+        return;
+    }
+
+    cout << "Enter password: ";
+    cin >> password;
+
+    ofstream outFile("users.txt", ios::app); // append mode
+    outFile << username << "," << password << endl;
+    outFile.close();
+
+    cout << "Registration successful. You can now log in.\n";
+}
+
+
+
+
+int main() {
+    int startChoice;
+
+    do {
+        cout << "\n--- Welcome to Inventory Management System ---\n";
+        cout << "1. Login\n";
+        cout << "2. Register\n";
+        cout << "3. Exit\n";
+        cout << "Enter choice: ";
+        cin >> startChoice;
+
+        if (startChoice == 1) {
+            if (login()) break; // login successful
+        } else if (startChoice == 2) {
+            registerUser();
+        } else if (startChoice == 3) {
+            cout << "Exiting...\n";
+            return 0;
+        } else {
+            cout << "Invalid choice.\n";
+        }
+
+    } while (true);
+
+    // Main menu logic after successful login
     loadFromFile();
     int choice;
     do {
         cout << "\n--- Inventory Management ---\n";
         cout << "1. Add Item\n2. Display All\n3. Search Item\n4. Update Item\n5. Delete Item\n6. Save & Exit\n7. Show Low Stock Items\n8. Sort Inventory\n9. Export Report\n10. Save & Exit\n";
-;
         cout << "Enter choice: ";
         cin >> choice;
-               switch (choice) {
+
+        switch (choice) {
             case 1: addItem(); break;
             case 2: displayAll(); break;
             case 3: searchItem(); break;
@@ -233,6 +313,3 @@ int main() {
 
     return 0;
 }
-
-
-
