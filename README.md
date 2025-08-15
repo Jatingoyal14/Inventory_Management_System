@@ -148,5 +148,4 @@ This project is open-source and free to use under the MIT License.
 ## ✨ Author
 **Jatin Goyal**  
 CSE Student – Amity University Gwalior (Batch 2022-26)  
-```
 
